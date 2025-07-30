@@ -12,7 +12,7 @@ export default function ProductPage() {
   const { add } = useCart();
 
   useEffect(() => {
-    apiFetch(`${ENDPOINTS.PRODUCTS}/${id}`).then(setProduct).catch(()=>{});
+    apiFetch(`${ENDPOINTS.PRODUCTS}${id}`).then(setProduct).catch(()=>{});
   }, [id]);
 
   if (!product) return <div>Loading...</div>;

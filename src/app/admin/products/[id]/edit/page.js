@@ -11,7 +11,7 @@ export default function EditProduct({ children }) {
   const [data, setData] = useState({ name: '', description: '', price: 0, quantity: 0, image:'' });
 
   useEffect(() => {
-    apiFetch(`${ENDPOINTS.PRODUCTS}/${id}`).then(setData).catch(()=>{});
+    apiFetch(`${ENDPOINTS.PRODUCTS}${id}`).then(setData).catch(()=>{});
   }, [id]);
 
   const submit = async e => {
@@ -29,7 +29,7 @@ export default function EditProduct({ children }) {
   const token = localStorage.getItem('token');
 
   try {
-    const response = await fetch(`${ENDPOINTS.PRODUCTS}/${id}`, {
+    const response = await fetch(`${ENDPOINTS.PRODUCTS}${id}`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${token}`,

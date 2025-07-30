@@ -40,7 +40,7 @@ export default function Orders({ children }) {
 
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`${ENDPOINTS.ORDERS}/${id}?status=${encodeURIComponent(newStatus)}`, {
+      const res = await fetch(`${ENDPOINTS.ORDERS}${id}?status=${encodeURIComponent(newStatus)}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,

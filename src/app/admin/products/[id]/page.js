@@ -12,11 +12,11 @@ export default function ProductDetail() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    apiFetch(`${ENDPOINTS.PRODUCTS}/${id}`).then(setProduct).catch(()=>{});
+    apiFetch(`${ENDPOINTS.PRODUCTS}${id}`).then(setProduct).catch(()=>{});
   }, [id]);
 
   const remove = async () => {
-    await apiFetch(`${ENDPOINTS.PRODUCTS}/${id}`, { 
+    await apiFetch(`${ENDPOINTS.PRODUCTS}${id}`, { 
       method: 'DELETE',
       body: JSON.stringify({ product_id: id }),
       headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${localStorage.getItem('token')}` }
